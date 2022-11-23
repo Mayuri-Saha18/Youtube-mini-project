@@ -1,0 +1,389 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            /* border: 1px solid red; */
+        }
+        .lg{
+            display: flex;
+            width:250px;
+            padding: 5px;
+        }
+        .lg>a{
+            text-decoration: none;
+        }
+        .lg .menu{
+            width: 30px;
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        .lg .logo{
+            width: 150px;
+            margin-left: 30px;
+        }
+        .searching{
+            display: flex;
+        }
+        .search-box{
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+            background-color: white;
+            /* border: 1px solid blue; */
+             border: 1px solid rgb(135, 135, 135) 
+        }
+        .search-box input{
+            width: 450px;
+            font-size: 18px;
+            margin-left: 10px;
+            outline: 0;
+            border: 0;
+            background-color: transparent;
+        }
+        .search-box>img{
+            width: 10px;
+            margin-left: 20px;
+        }
+        .search-box>div>button{
+            width: 100%;
+            padding: 10px 0px;
+            border: none;
+            outline: none;
+            /* border: 1px solid black; */
+        }
+        .search-box>div{
+            width: 80px;
+            height: 100%;
+            /* border: 1px solid black; */
+        }
+        .voice{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            width: 20px;
+        }
+        .icons{
+            margin-right:20px ;
+        }
+        .icon1{
+            width: 30px;
+        
+        }
+        .icon2{
+            width: 30px;
+            margin-left: 10px;
+        }
+        .icon3{
+            width: 30px;
+            margin-left: 10px;
+        }
+        .icon4{
+            width: 30px;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
+        /* navbar ends here */
+
+        #rightside{
+            width: 15%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            transition: all 0.2s ease;
+            padding-left: 30px;
+            padding-top: 75px;
+            background-color: white;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+             /* border: 1px solid black;  */
+        }
+        #rightside hr{
+            border: 0;
+            height: 1px;
+            width: 90%;
+            background: rgb(133, 133, 133);
+            margin-bottom: 10px;
+
+        }
+        .upper>a{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .upper>a>img{
+            width: 30px;
+            margin-right: 20px;
+        }
+        .middle>a{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .middle>a>img{
+            width: 30px;
+            margin-right: 20px;
+        }
+        .lower h4{
+            margin: 10px 0px;
+            color: rgb(105, 104, 104);
+        }
+        .lower>a{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .lower>a>img{
+            border-radius: 50%;
+            width: 30px;
+            margin-right: 20px;
+        }
+        #rightside a:hover,.active{
+            background: rgb(186, 185, 185);
+        }
+
+        /* rightside ends */
+        #filtering{
+            position: fixed;
+            margin-left: 15%;
+            width: 85%;
+            /* left: 250px; */
+            top: 70px;
+            /* width: calc(100%-250px); */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background-color: white;
+        }
+        #filtering::-webkit-scrollbar{
+            display: none;
+        }
+        #filtering>button{
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 30px;
+            padding: 10px 20px;
+            border: 1px solid rgb(179, 177, 177);
+            background-color: rgb(246, 239, 239);
+        }
+        #filtering .alltime{
+            color: white;
+            background-color: black;
+            cursor: pointer;
+            border-radius: 30px;
+            padding: 10px 20px;
+        
+        }
+        /* filter part ends*/
+
+        #container{
+            /* border: 1px solid black; */
+            margin-top: 60px;
+            margin-left: 16%;
+            width: 83%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+        }
+        #container>div>img{
+            width: 100%;
+        }
+        #container>div{
+            width: 100%;
+            /* border: 1px solid blue; */
+        }
+       
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="lg">
+            <img src="images/menu.png" alt="" class="menu">
+            <a href="index.html">
+            <img src="https://static.vecteezy.com/system/resources/previews/003/206/623/original/youtube-editorial-app-icon-free-vector.jpg" alt="" class="logo">
+        </a>
+        </div>
+        <div class="searching">
+                <div class="search-box">
+                    <input type="text" name="" class="search-input" placeholder="Search" id="query">
+                    <div>
+                    <button onclick="search()"><img src="images/search.png" alt="" class="searchimg"></button>
+                </div>
+                </div>
+                <img src="images/voice-search.png" alt="" class="voice">
+        </div>
+        <button onclick="filter()">Filter</button>
+        <div class="icons">
+            <img src="images/upload.png" alt="" class="icon1">
+            <img src="images/more.png" alt=""class="icon2">
+            <img src="images/notification.png" alt=""class="icon3">
+            <img src="images/cameron.png" alt=""class="icon4">
+        </div>
+    </nav>
+<!-- navbar ends here -->
+
+
+    <div id="rightside">
+        <div class="upper">
+            <a href="" class="active"><img src="images/icons8-home-24.png" alt=""><p>Home</p></a>
+            <a href=""><img src="images/explore.png" alt=""><p>Explore</p></a>
+            <a href=""><img src="images/icons8-photo-video-48.png" alt=""><p>Shorts</p></a>
+            <a href=""><img src="images/subscriprion.png" alt=""><p>Subscriptions</p></a>
+            <hr>
+        </div>
+        <div class="middle">
+            <a href=""><img src="images/icons8-video-gallery-32.png" alt=""><p>Library</p></a>
+            <a href=""><img src="images/icons8-history-48.png" alt=""><p>History</p></a>
+            <a href=""><img src="images/icons8-video-24.png" alt=""><p>Your videos</p></a>
+            <a href=""><img src="images/icons8-history-32.png" alt=""><p>Watch Later</p></a>
+            <a href=""><img src="images/icons8-like-64.png" alt=""><p>Liked videos</p></a>
+            <a href=""><img src="images/icons8-down-arrow-32.png" alt=""><p>Show more</p></a>
+            <hr>
+        </div>
+        <div class="lower">
+            <h4>SUBSCRIPTIONS</h4>
+            <a href=""><img src="images/cameron.png" alt=""><p>Cameron</p></a>
+            <a href=""><img src="images/simon.png" alt=""><p>Simon</p></a>
+            <a href=""><img src="images/Jack.png" alt=""><p>Jack</p></a>
+            <a href=""><img src="images/tom.png" alt=""><p>Tom</p></a>
+            <a href=""><img src="images/megan.png" alt=""><p>Megan</p></a>
+
+        </div>
+    </div>
+
+    <!-- rightside ends -->
+
+    <div id="filtering">
+        <button class="alltime">All</button>
+        <button>Javascript</button>
+        <button>Computer Science</button>
+    </div>
+
+    <!-- filter part ends-->
+
+    <div id="container"></div>
+</body>
+</html>
+<script>
+const Api_key= "AIzaSyCYsqTHpKGidXKusrPgobFoPPEQ8_qSShQ"
+    // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=thor&key=AIzaSyCYsqTHpKGidXKusrPgobFoPPEQ8_qSShQ
+let q="";
+    let search=async()=>{
+    let query=document.getElementById("query").value;
+    // getData(query);
+    let data=await getData(query);
+    q=query;
+    append(data)
+};
+
+let getData=async(query)=>{
+    let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=${Api_key}`
+    let res=await fetch (url);
+    let data= await res.json();
+    // append(data.items)
+    console.log(data);
+
+    return data.items;
+    
+};
+main();
+async function main(){
+    try{
+        let res=await fetch (`https://youtube.googleapis.com/youtube/v3/search?part=snippet&chart=mostPopular&maxResults=20&regionCode=IN&key=${Api_key}`);
+    let data= await res.json();
+    console.log(data)
+    let data1=data.items;
+    append1(data1)
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
+let append=(data)=>{
+    let container=document.getElementById("container");
+    container.innerHTML=null
+    data.forEach((el)=>{
+        // snippet->title
+        // snippet->thumbnails->medium->url
+
+        let div=document.createElement("div")
+        div.onclick=()=>{
+            saveVideo(el)
+        }
+        div.setAttribute=("class","video")
+        let img=document.createElement("img")
+        img.src=el.snippet.thumbnails.high.url;
+        let h3=document.createElement("h4")
+        h3.innerText=el.snippet.title;
+        div.append(img,h3);
+        container.append(div);
+    })
+}
+
+let append1=(data1)=>{
+    let container=document.getElementById("container");
+    container.innerHTML=null
+    data1.forEach((el)=>{
+        // snippet->title
+        // snippet->thumbnails->medium->url
+
+        let div=document.createElement("div")
+        div.onclick=()=>{
+            saveVideo(el)
+        }
+        div.setAttribute=("class","video")
+        let img=document.createElement("img")
+        img.src=el.snippet.thumbnails.high.url;
+        let h3=document.createElement("h4")
+        h3.innerText=el.snippet.title;
+        div.append(img,h3);
+        container.append(div);
+    })
+}
+let saveVideo=(data)=>{
+    localStorage.setItem("video" ,JSON.stringify(data));
+    window.location.href="video.html"
+}
+let filter=async()=>{
+    let data=await getData(q);
+    console.log(data);
+    data=data.filter((el)=>{
+        return el.snippet.channelId === "UCEKWXRsfUHkan-D_ljU8Asw"
+    });
+    append(data);
+}
+
+</script>
